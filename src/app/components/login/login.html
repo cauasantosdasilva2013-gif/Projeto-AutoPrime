@@ -1,0 +1,107 @@
+<main>
+
+        <!-- LADO ESQUERDO -->
+        <div class="lado esquerdo">
+
+            <div class="marca">
+                 AutoPrime
+            </div>
+
+            <h2>Sistema de Gestão Mecânica</h2>
+
+            <p>
+                Controle clientes, veículos e agendamentos da sua
+                oficina em um só lugar, de forma simples e rápida.
+            </p>
+
+            <!-- CARROSSEL DE IMAGENS -->
+            <div class="carrossel-area">
+
+                <div class="carrossel" id="carrossel" aria-roledescription="carrossel" aria-label="Serviços da AutoPrime">
+
+                    <div class="carrossel-slide ativo">
+                        <img src="img/troca-de-oleo.jpg" alt="Troca de óleo">
+                        <div class="carrossel-legenda">🛢️ Troca de óleo</div>
+                    </div>
+
+                    <div class="carrossel-slide">
+                        <img src="img/alinhamento-e-balanceamento.jpg" alt="Alinhamento e balanceamento">
+                        <div class="carrossel-legenda">🛞 Alinhamento e balanceamento</div>
+                    </div>
+
+                    <div class="carrossel-slide">
+                        <img src="img/freios.jpg" alt="Sistema de freios">
+                        <div class="carrossel-legenda">🛑 Sistema de freios</div>
+                    </div>
+
+                    <div class="carrossel-slide">
+                        <img src="img/reviso.jpg" alt="Revisão completa">
+                        <div class="carrossel-legenda">🧰 Revisão completa</div>
+                    </div>
+
+                    <div class="carrossel-slide">
+                        <img src="img/diagnstico-eletrnico.jpg" alt="Diagnóstico eletrônico">
+                        <div class="carrossel-legenda">💻 Diagnóstico eletrônico</div>
+                    </div>
+
+                    <button type="button" class="carrossel-btn anterior" aria-label="Imagem anterior">‹</button>
+                    <button type="button" class="carrossel-btn proximo" aria-label="Próxima imagem">›</button>
+
+                </div>
+
+                <div class="carrossel-pontos" id="carrosselPontos"></div>
+
+            </div>
+
+            <ul class="destaques">
+                <li>✅ Agendamento online de serviços</li>
+                <li>✅ Painel com visão geral da oficina</li>
+                <li>✅ Cadastro de veículos dos clientes</li>
+            </ul>
+
+        </div>
+
+        <!-- LADO DIREITO -->
+        <div class="lado direito">
+
+            <div class="caixa-login">
+
+                <h1>Bem-vindo de volta</h1>
+                <p class="subtitulo">Entre com sua conta para acessar o painel da oficina.</p>
+
+                <div id="loginErro" class="login-erro"></div>
+
+                <form id="formLogin">
+
+                    <label for="e-mail">E-mail</label>
+                    <input
+                        type="email"
+                        id="e-mail"
+                        placeholder="Digite seu e-mail"
+                        required
+                    >
+
+                    <label for="senha">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+
+                    <button type="submit">Entrar</button>
+
+                </form>
+
+                <div class="login-dica">
+                    💡 Demonstração: use <strong>admin@autoprime.com</strong> / <strong>123456</strong>,
+                    ou entre com qualquer e-mail e senha (mín. 4 caracteres) para criar um acesso novo.
+                </div>
+
+                <p class="login-rodape">© 2026 AutoPrime — Sistema de Gestão Mecânica</p>
+
+            </div>
+
+        </div>
+
+    </main>

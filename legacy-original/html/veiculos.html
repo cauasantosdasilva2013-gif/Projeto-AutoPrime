@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos | AutoPrime</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">🔧 AutoPrime</div>
+
+        <nav>
+            <a href="dashboard.html"><span class="icone">📊</span> Dashboard</a>
+            <a href="agendamento.html"><span class="icone">📅</span> Agendamentos</a>
+            <a href="veiculos.html" class="ativo"><span class="icone">🚗</span> Veículos</a>
+            <a href="relatorios.html"><span class="icone">📈</span> Relatórios</a>
+            <a href="#"><span class="icone">⚙️</span> Configurações</a>
+            <a href="#" data-sair><span class="icone">↩️</span> Sair</a>
+        </nav>
+
+        <div class="promo">
+            <div class="promo-emoji">🛠️</div>
+            <h4>Hora da revisão?</h4>
+            <p>Agende agora e mantenha o veículo do cliente seguro na estrada.</p>
+            <a href="agendamento.html">Agendar agora</a>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <div class="topbar">
+
+            <div>
+                <span class="rotulo">Cadastros</span>
+                <h1>Veículos</h1>
+            </div>
+
+            <div class="topbar-acoes">
+
+                <button class="btn-principal" id="btnNovoVeiculo">+ Novo veículo</button>
+
+                <div class="usuario-chip">
+                    <div class="usuario-avatar" data-usuario-avatar>A</div>
+                    <div>
+                        <div class="usuario-nome" data-usuario-nome>Usuário</div>
+                        <div class="usuario-sair" data-sair>Sair</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <section class="painel">
+
+            <div class="painel-titulo">
+                <div>
+                    <span>FROTA DE CLIENTES</span>
+                    <h2>Veículos cadastrados</h2>
+                </div>
+            </div>
+
+            <table class="tabela-veiculos">
+                <thead>
+                    <tr>
+                        <th>Veículo</th>
+                        <th>Placa</th>
+                        <th>Tipo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabelaVeiculos"></tbody>
+            </table>
+
+            <div class="sem-agendamento" id="veiculosVazio" style="display:none;">
+                <div>🚗</div>
+                <h3>Nenhum veículo cadastrado</h3>
+                <p>Clique em "Novo veículo" para começar.</p>
+            </div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<!-- MODAL NOVO VEÍCULO -->
+<div class="modal-fundo" id="modalVeiculo">
+    <div class="modal-caixa">
+
+        <h3>Cadastrar veículo</h3>
+
+        <form id="formVeiculo">
+
+            <div class="campo" style="margin-bottom: 16px;">
+                <label>Ícone</label>
+                <div class="icone-selecao" id="icones"></div>
+            </div>
+
+            <div class="campo" style="margin-bottom: 16px;">
+                <label>Nome do veículo</label>
+                <input type="text" id="nomeVeiculo" placeholder="Ex: Honda Civic" required>
+            </div>
+
+            <div class="campo" style="margin-bottom: 16px;">
+                <label>Placa</label>
+                <input type="text" id="placaVeiculo" placeholder="ABC-1234" required>
+            </div>
+
+            <div class="campo">
+                <label>Tipo</label>
+                <select id="tipoVeiculo" required>
+                    <option value="carro">Carro</option>
+                    <option value="moto">Moto</option>
+                </select>
+            </div>
+
+            <div class="modal-acoes">
+                <button type="button" class="btn-secundario" id="btnCancelarModal">Cancelar</button>
+                <button type="submit" class="btn-principal">Salvar veículo</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+<script src="../js/dados.js"></script>
+<script>const CAMINHO_RAIZ = "../";</script>
+<script src="../js/auth.js"></script>
+<script src="../js/veiculos.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento | AutoPrime</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">🔧 AutoPrime</div>
+
+        <nav>
+            <a href="dashboard.html"><span class="icone">📊</span> Dashboard</a>
+            <a href="agendamento.html" class="ativo"><span class="icone">📅</span> Agendamentos</a>
+            <a href="veiculos.html"><span class="icone">🚗</span> Veículos</a>
+            <a href="relatorios.html"><span class="icone">📈</span> Relatórios</a>
+            <a href="#"><span class="icone">⚙️</span> Configurações</a>
+            <a href="#" data-sair><span class="icone">↩️</span> Sair</a>
+        </nav>
+
+        <div class="promo">
+            <div class="promo-emoji">🛠️</div>
+            <h4>Hora da revisão?</h4>
+            <p>Agende agora e mantenha o veículo do cliente seguro na estrada.</p>
+            <a href="agendamento.html">Agendar agora</a>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <div class="topbar">
+
+            <div>
+                <span class="rotulo">Oficina AutoPrime</span>
+                <h1>Agendamento de Serviço</h1>
+            </div>
+
+            <div class="topbar-acoes">
+                <div class="icone-btn">🔔</div>
+                <div class="usuario-chip">
+                    <div class="usuario-avatar" data-usuario-avatar>A</div>
+                    <div>
+                        <div class="usuario-nome" data-usuario-nome>Usuário</div>
+                        <div class="usuario-sair" data-sair>Sair</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <form id="formAgendamento">
+
+            <!-- SELEÇÃO DE VEÍCULO -->
+            <section class="bloco" style="margin-bottom: 22px;">
+
+                <div class="bloco-cabecalho">
+                    <h3>Selecione o veículo para agendar o serviço</h3>
+                    <a href="veiculos.html">Cadastrar novo veículo</a>
+                </div>
+
+                <div class="veiculos-lista" id="listaVeiculos"></div>
+
+            </section>
+
+            <!-- SERVIÇO, REGIÃO E UNIDADE -->
+            <section class="bloco" style="margin-bottom: 22px;">
+
+                <div class="bloco-cabecalho">
+                    <h3>Selecione o serviço e a unidade de atendimento</h3>
+                </div>
+
+                <div class="selects-grid">
+
+                    <div class="campo">
+                        <label>Tipo de serviço</label>
+                        <select id="servico" required></select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Região</label>
+                        <select id="regiao" required></select>
+                    </div>
+
+                    <div class="campo">
+                        <label>Unidade de atendimento</label>
+                        <select id="unidade" required>
+                            <option value="">Escolha a região primeiro</option>
+                        </select>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- DATA E HORÁRIO -->
+            <section class="bloco">
+
+                <div class="agenda-grid">
+
+                    <div>
+                        <h3>Selecione a data</h3>
+
+                        <div class="calendario-cabecalho">
+                            <button type="button" id="btnMesAnterior">‹</button>
+                            <span id="mesAnoAtual"></span>
+                            <button type="button" id="btnMesSeguinte">›</button>
+                        </div>
+
+                        <div class="calendario-semana">
+                            <span>Dom</span><span>Seg</span><span>Ter</span><span>Qua</span>
+                            <span>Qui</span><span>Sex</span><span>Sáb</span>
+                        </div>
+
+                        <div class="calendario-dias" id="calendarioDias"></div>
+                    </div>
+
+                    <div>
+                        <h3>Selecione o horário</h3>
+                        <div class="slots" id="listaSlots"></div>
+                    </div>
+
+                </div>
+
+                <div class="campo" style="margin-top: 4px;">
+                    <label>Observação (opcional)</label>
+                    <textarea id="observacao" placeholder="Descreva algum problema ou observação..."></textarea>
+                </div>
+
+                <div id="mensagem"></div>
+
+                <div class="acoes-form">
+                    <button type="button" id="btnCancelar" class="btn-secundario">Cancelar</button>
+                    <button type="submit" class="btn-principal">Confirmar agendamento →</button>
+                </div>
+
+            </section>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="../js/dados.js"></script>
+<script>const CAMINHO_RAIZ = "../";</script>
+<script src="../js/auth.js"></script>
+<script src="../js/agendamento.js"></script>
+
+</body>
+
+</html>

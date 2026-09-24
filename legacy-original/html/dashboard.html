@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AutoPrime</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">🔧 AutoPrime</div>
+
+        <nav>
+            <a href="dashboard.html" class="ativo"><span class="icone">📊</span> Dashboard</a>
+            <a href="agendamento.html"><span class="icone">📅</span> Agendamentos</a>
+            <a href="veiculos.html"><span class="icone">🚗</span> Veículos</a>
+            <a href="relatorios.html"><span class="icone">📈</span> Relatórios</a>
+            <a href="#"><span class="icone">⚙️</span> Configurações</a>
+            <a href="#" data-sair><span class="icone">↩️</span> Sair</a>
+        </nav>
+
+        <div class="promo">
+            <div class="promo-emoji">🛠️</div>
+            <h4>Hora da revisão?</h4>
+            <p>Agende agora e mantenha o veículo do cliente seguro na estrada.</p>
+            <a href="agendamento.html">Agendar agora</a>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <div class="topbar">
+
+            <div>
+                <span class="rotulo">Painel Administrativo</span>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="topbar-acoes">
+
+                <a href="agendamento.html" class="btn-principal">+ Novo agendamento</a>
+
+                <div class="icone-btn">🔔</div>
+
+                <div class="usuario-chip">
+                    <div class="usuario-avatar" data-usuario-avatar>A</div>
+                    <div>
+                        <div class="usuario-nome" data-usuario-nome>Usuário</div>
+                        <div class="usuario-sair" data-sair>Sair</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CARDS -->
+        <div class="estatisticas">
+
+            <div class="estatistica">
+                <div class="estatistica-icone">👥</div>
+                <div>
+                    <span>CLIENTES</span>
+                    <h2 id="totalClientes">0</h2>
+                </div>
+            </div>
+
+            <div class="estatistica">
+                <div class="estatistica-icone">🚗</div>
+                <div>
+                    <span>VEÍCULOS</span>
+                    <h2 id="totalVeiculos">0</h2>
+                </div>
+            </div>
+
+            <div class="estatistica">
+                <div class="estatistica-icone">🔧</div>
+                <div>
+                    <span>SERVIÇOS OFERECIDOS</span>
+                    <h2 id="totalServicos">0</h2>
+                </div>
+            </div>
+
+            <div class="estatistica destaque">
+                <div class="estatistica-icone">📅</div>
+                <div>
+                    <span>AGENDAMENTOS</span>
+                    <h2 id="totalAgendamentos">0</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- AGENDAMENTOS -->
+        <section class="painel">
+
+            <div class="painel-titulo">
+                <div>
+                    <span>AGENDA</span>
+                    <h2>Próximos agendamentos</h2>
+                </div>
+                <a href="agendamento.html" class="btn-secundario">+ Novo agendamento</a>
+            </div>
+
+            <div id="listaAgendamentos"></div>
+
+        </section>
+
+    </div>
+
+</div>
+
+<script src="../js/dados.js"></script>
+<script>const CAMINHO_RAIZ = "../";</script>
+<script src="../js/auth.js"></script>
+<script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

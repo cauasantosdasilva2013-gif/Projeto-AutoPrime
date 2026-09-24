@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios | AutoPrime</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo">🔧 AutoPrime</div>
+
+        <nav>
+            <a href="dashboard.html"><span class="icone">📊</span> Dashboard</a>
+            <a href="agendamento.html"><span class="icone">📅</span> Agendamentos</a>
+            <a href="veiculos.html"><span class="icone">🚗</span> Veículos</a>
+            <a href="relatorios.html" class="ativo"><span class="icone">📈</span> Relatórios</a>
+            <a href="#"><span class="icone">⚙️</span> Configurações</a>
+            <a href="#" data-sair><span class="icone">↩️</span> Sair</a>
+        </nav>
+
+        <div class="promo">
+            <div class="promo-emoji">🛠️</div>
+            <h4>Hora da revisão?</h4>
+            <p>Agende agora e mantenha o veículo do cliente seguro na estrada.</p>
+            <a href="agendamento.html">Agendar agora</a>
+        </div>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+    <div class="conteudo">
+
+        <div class="topbar">
+
+            <div>
+                <span class="rotulo">Análises</span>
+                <h1>Relatórios</h1>
+            </div>
+
+            <div class="topbar-acoes">
+
+                <button class="btn-secundario" id="btnExportar">⬇️ Exportar CSV</button>
+                <button class="btn-principal" id="btnImprimir">🖨️ Imprimir</button>
+
+                <div class="usuario-chip">
+                    <div class="usuario-avatar" data-usuario-avatar>A</div>
+                    <div>
+                        <div class="usuario-nome" data-usuario-nome>Usuário</div>
+                        <div class="usuario-sair" data-sair>Sair</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- FILTROS -->
+        <section class="painel sem-impressao">
+
+            <div class="painel-titulo">
+                <div>
+                    <span>FILTROS</span>
+                    <h2>Refine o relatório</h2>
+                </div>
+                <button class="btn-secundario" id="btnLimpar">Limpar filtros</button>
+            </div>
+
+            <div class="filtros-grid">
+
+                <div class="campo">
+                    <label for="filtroPeriodo">Período</label>
+                    <select id="filtroPeriodo">
+                        <option value="todos">Todo o período</option>
+                        <option value="mes">Este mês</option>
+                        <option value="7">Próximos 7 dias</option>
+                        <option value="30">Próximos 30 dias</option>
+                        <option value="passados">Já realizados (antes de hoje)</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="filtroServico">Serviço</label>
+                    <select id="filtroServico"><option value="">Todos os serviços</option></select>
+                </div>
+
+                <div class="campo">
+                    <label for="filtroUnidade">Unidade</label>
+                    <select id="filtroUnidade"><option value="">Todas as unidades</option></select>
+                </div>
+
+                <div class="campo">
+                    <label for="filtroVeiculo">Veículo</label>
+                    <select id="filtroVeiculo"><option value="">Todos os veículos</option></select>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ESTADO VAZIO -->
+        <section class="painel" id="relatorioVazio" style="display:none;">
+            <div class="sem-agendamento">
+                <div>📈</div>
+                <h3>Nenhum agendamento encontrado</h3>
+                <p>Ajuste os filtros ou crie agendamentos para gerar o relatório.</p>
+                <div style="margin-top:18px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                    <a href="agendamento.html" class="btn-principal">+ Novo agendamento</a>
+                    <button class="btn-secundario" id="btnExemplos">Carregar dados de exemplo</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="relatorioConteudo">
+
+            <!-- RESUMO -->
+            <div class="estatisticas">
+
+                <div class="estatistica destaque">
+                    <div class="estatistica-icone">📅</div>
+                    <div>
+                        <span>AGENDAMENTOS</span>
+                        <h2 id="kpiTotal">0</h2>
+                    </div>
+                </div>
+
+                <div class="estatistica">
+                    <div class="estatistica-icone">🚗</div>
+                    <div>
+                        <span>VEÍCULOS ATENDIDOS</span>
+                        <h2 id="kpiVeiculos">0</h2>
+                    </div>
+                </div>
+
+                <div class="estatistica">
+                    <div class="estatistica-icone">🔧</div>
+                    <div>
+                        <span>SERVIÇO MAIS PROCURADO</span>
+                        <h2 class="texto" id="kpiServico">—</h2>
+                    </div>
+                </div>
+
+                <div class="estatistica">
+                    <div class="estatistica-icone">📍</div>
+                    <div>
+                        <span>UNIDADE MAIS MOVIMENTADA</span>
+                        <h2 class="texto" id="kpiUnidade">—</h2>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICOS -->
+            <div class="duas-colunas">
+
+                <section class="painel">
+                    <div class="painel-titulo">
+                        <div>
+                            <span>SERVIÇOS</span>
+                            <h2>Agendamentos por serviço</h2>
+                        </div>
+                    </div>
+                    <div id="graficoServicos"></div>
+                </section>
+
+                <section class="painel">
+                    <div class="painel-titulo">
+                        <div>
+                            <span>UNIDADES</span>
+                            <h2>Agendamentos por unidade</h2>
+                        </div>
+                    </div>
+                    <div id="graficoUnidades"></div>
+                </section>
+
+            </div>
+
+            <section class="painel">
+                <div class="painel-titulo">
+                    <div>
+                        <span>HORÁRIOS</span>
+                        <h2>Horários mais procurados</h2>
+                    </div>
+                </div>
+                <div id="graficoHorarios"></div>
+            </section>
+
+            <!-- TABELA -->
+            <section class="painel">
+                <div class="painel-titulo">
+                    <div>
+                        <span>DETALHAMENTO</span>
+                        <h2>Lista de agendamentos <small id="contagemTabela"></small></h2>
+                    </div>
+                </div>
+
+                <div class="tabela-scroll">
+                    <table class="tabela-veiculos">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Horário</th>
+                                <th>Veículo</th>
+                                <th>Placa</th>
+                                <th>Serviço</th>
+                                <th>Unidade</th>
+                                <th>Observação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoTabelaRelatorio"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <p class="rodape-relatorio" id="rodapeRelatorio"></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../js/dados.js"></script>
+<script>const CAMINHO_RAIZ = "../";</script>
+<script src="../js/auth.js"></script>
+<script src="../js/relatorios.js"></script>
+
+</body>
+
+</html>

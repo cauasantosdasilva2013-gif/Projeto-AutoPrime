@@ -1,0 +1,48 @@
+AUTOPRIME - SISTEMA DE GESTAO MECANICA
+========================================
+
+COMO USAR
+---------
+1. Extraia o arquivo ZIP.
+2. Abra o arquivo "index.html" (pagina de login) no navegador
+   com dois cliques - nao precisa de servidor nem internet.
+3. Login de demonstracao:
+     E-mail: admin@autoprime.com
+     Senha:  123456
+   (ou entre com qualquer e-mail/senha com 4+ caracteres para
+   criar uma conta nova automaticamente)
+
+ESTRUTURA DE PASTAS
+--------------------
+index.html            -> Pagina inicial = tela de Login
+html/dashboard.html    -> Painel com estatisticas e proximos agendamentos
+html/agendamento.html  -> Tela de agendamento (veiculo, servico, regiao,
+                           unidade, calendario e horarios - baseada na
+                           imagem de referencia enviada)
+html/veiculos.html     -> Cadastro/lista de veiculos dos clientes
+css/style.css          -> Estilo visual de todo o sistema
+js/dados.js            -> Dados fixos (servicos, regioes, horarios) e
+                           funcoes de leitura/gravacao no localStorage
+js/auth.js             -> Protege as paginas internas e controla logout
+js/login.js             -> Logica da tela de login
+js/dashboard.js         -> Logica do painel
+js/agendamento.js       -> Logica da tela de agendamento
+js/veiculos.js          -> Logica do cadastro de veiculos
+img/                     -> Imagens dos servicos (do projeto original)
+
+COMO FUNCIONA O "BANCO DE DADOS"
+---------------------------------
+Como e um projeto 100% HTML/CSS/JS (sem back-end), os dados
+(usuarios, veiculos e agendamentos) ficam salvos no localStorage
+do proprio navegador. Isso significa que:
+- Os dados persistem entre acessos no MESMO navegador/computador.
+- Cada navegador/computador tera seus proprios dados.
+- Para "zerar" o sistema, limpe os dados do site nas configuracoes
+  do navegador (ou use uma aba anonima).
+
+PERSONALIZACAO
+--------------
+- Cores, fontes e espacamentos: edite as variaveis no topo de
+  css/style.css (bloco ":root").
+- Servicos, regioes, unidades e horarios de atendimento: edite
+  as listas no topo de js/dados.js.

@@ -9,11 +9,11 @@ import { RelatoriosComponent } from './pages/relatorios/relatorios.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
-  { path: 'login', component: LoginComponent, canActivate: [loginGuard] },
+  { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent, canActivate: [loginGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'agendamento', component: AgendamentoComponent, canActivate: [authGuard] },
   { path: 'veiculos', component: VeiculosComponent, canActivate: [authGuard] },
   { path: 'relatorios', component: RelatoriosComponent, canActivate: [authGuard] },
-  { path: '**', redirectTo: 'dashboard' }
+  { path: '**', redirectTo: 'login' }
 ];

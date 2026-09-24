@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,10 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   template: `<router-outlet></router-outlet>`
 })
-export class AppComponent {}
+export class AppComponent {
+  private readonly router = inject(Router);
+
+  constructor() {
+    void this.router.navigate(['/login'], { replaceUrl: true });
+  }
+}

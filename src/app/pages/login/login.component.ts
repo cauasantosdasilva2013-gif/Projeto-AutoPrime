@@ -30,6 +30,12 @@ import { AuthLayoutComponent } from '../../shared/auth-layout.component';
         💡 Demonstração: use <strong>admin&#64;autoprime.com</strong> / <strong>123456</strong>. Se preferir, crie sua própria conta.
       </div>
       <p class="login-cadastro">Ainda não tem conta? <a routerLink="/cadastro">Criar conta</a></p>
+
+      <div class="login-contato">
+        <span>📞 <a href="tel:+557193459872">(71) 9345-9872</a></span>
+        <span>✉️ <a href="mailto:autoprime@gmail.com">autoprime@gmail.com</a></span>
+      </div>
+
       <p class="login-rodape">© 2026 AutoPrime — Sistema de Gestão Mecânica</p>
     </app-auth-layout>
   `

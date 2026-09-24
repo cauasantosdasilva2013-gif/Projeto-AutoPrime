@@ -11,7 +11,7 @@ interface Slide { imagem: string; alt: string; legenda: string; }
     <main class="pagina-login-shell">
       <div class="lado esquerdo">
         <div class="marca-logo">
-          <img src="assets/img/logo-autoprime.jpeg" alt="AutoPrime - Sistema de Gestão Mecânica">
+          <img src="assets/img/logo-autoprime.png" alt="AutoPrime - Sistema de Gestão Mecânica">
         </div>
 
         <h2>Sistema de Gestão Mecânica</h2>

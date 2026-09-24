@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Agendamento, Servico, Usuario, Veiculo } from './models';
+import { Agendamento, EtapaStatus, Servico, StatusVeiculo, Usuario, Veiculo } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class DataService {
@@ -27,6 +27,13 @@ export class DataService {
   };
   readonly HORARIOS = ['08:00', '09:00', '10:00', '11:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
   readonly ICONES_VEICULO = ['🚗', '🚙', '🏎️', '🚚', '🏍️'];
+  readonly ETAPAS_STATUS: EtapaStatus[] = [
+    { chave: 'recebido', rotulo: 'Recebido', icone: '📥', descricao: 'Veículo recebido na oficina' },
+    { chave: 'diagnostico', rotulo: 'Em diagnóstico', icone: '🔍', descricao: 'Avaliação do problema em andamento' },
+    { chave: 'manutencao', rotulo: 'Em manutenção', icone: '🔧', descricao: 'Serviço sendo executado' },
+    { chave: 'pronto', rotulo: 'Pronto para retirada', icone: '✅', descricao: 'Serviço concluído, aguardando retirada' },
+    { chave: 'entregue', rotulo: 'Entregue', icone: '🚗', descricao: 'Veículo entregue ao cliente' }
+  ];
   readonly NOMES_MES = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
   constructor() {
@@ -57,6 +64,16 @@ export class DataService {
   salvarVeiculos(lista: Veiculo[]): void { this.salvarLista(this.LS_VEICULOS, lista); }
   salvarAgendamentos(lista: Agendamento[]): void { this.salvarLista(this.LS_AGENDAMENTOS, lista); }
   salvarUsuarios(lista: Usuario[]): void { this.salvarLista(this.LS_USUARIOS, lista); }
+
+  indiceEtapa(status: StatusVeiculo | undefined): number {
+    const indice = this.ETAPAS_STATUS.findIndex(e => e.chave === (status ?? 'recebido'));
+    return indice === -1 ? 0 : indice;
+  }
+
+  atualizarStatusAgendamento(id: number, status: StatusVeiculo): void {
+    const lista = this.getAgendamentos().map(a => a.id === id ? { ...a, status } : a);
+    this.salvarAgendamentos(lista);
+  }
 
   todasUnidades(): string[] { return Object.values(this.UNIDADES_POR_REGIAO).flat(); }
 

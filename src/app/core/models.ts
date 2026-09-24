@@ -24,6 +24,15 @@ export interface Servico {
   icone: string;
 }
 
+export type StatusVeiculo = 'recebido' | 'diagnostico' | 'manutencao' | 'pronto' | 'entregue';
+
+export interface EtapaStatus {
+  chave: StatusVeiculo;
+  rotulo: string;
+  icone: string;
+  descricao: string;
+}
+
 export interface Agendamento {
   id: number;
   veiculoId: number;
@@ -36,4 +45,5 @@ export interface Agendamento {
   horario: string;
   observacao: string;
   criadoEm: string;
+  status?: StatusVeiculo;
 }

@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgendamentoComponent } from './pages/agendamento/agendamento.component';
 import { VeiculosComponent } from './pages/veiculos/veiculos.component';
 import { RelatoriosComponent } from './pages/relatorios/relatorios.component';
+import { StatusComponent } from './pages/status/status.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [authGuard] },
   { path: 'agendamento', component: AgendamentoComponent, canActivate: [authGuard] },
   { path: 'veiculos', component: VeiculosComponent, canActivate: [authGuard] },
+  { path: 'status', component: StatusComponent, canActivate: [authGuard] },
   { path: 'relatorios', component: RelatoriosComponent, canActivate: [authGuard] },
   { path: '**', redirectTo: 'login' }
 ];

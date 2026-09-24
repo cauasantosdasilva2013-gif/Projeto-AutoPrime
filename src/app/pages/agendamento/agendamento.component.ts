@@ -132,7 +132,8 @@ export class AgendamentoComponent {
     agendamentos.push({
       id: this.data.gerarId(agendamentos), veiculoId: veiculo.id, veiculoNome: veiculo.nome, placa: veiculo.placa,
       servico: this.servico, servicoIcone: servicoObj.icone, unidade: this.unidade, data: this.dataSelecionada,
-      horario: this.horarioSelecionado, observacao: this.observacao.trim(), criadoEm: new Date().toISOString()
+      horario: this.horarioSelecionado, observacao: this.observacao.trim(), criadoEm: new Date().toISOString(),
+      status: 'recebido'
     });
     this.data.salvarAgendamentos(agendamentos);
     this.mostrarMensagem('Agendamento confirmado com sucesso! Redirecionando para o painel...', 'sucesso');

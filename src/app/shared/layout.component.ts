@@ -22,6 +22,7 @@ import { AuthService } from '../core/auth.service';
           <a routerLink="/dashboard" routerLinkActive="ativo" [routerLinkActiveOptions]="{exact:true}" (click)="fecharMenu()"><span class="icone">📊</span> Dashboard</a>
           <a routerLink="/agendamento" routerLinkActive="ativo" (click)="fecharMenu()"><span class="icone">📅</span> Agendamentos</a>
           <a routerLink="/veiculos" routerLinkActive="ativo" (click)="fecharMenu()"><span class="icone">🚗</span> Veículos</a>
+          <a routerLink="/status" routerLinkActive="ativo" (click)="fecharMenu()"><span class="icone">🧭</span> Status do Veículo</a>
           <a routerLink="/relatorios" routerLinkActive="ativo" (click)="fecharMenu()"><span class="icone">📈</span> Relatórios</a>
           <a href="javascript:void(0)" (click)="abrirConfiguracoes(); $event.preventDefault()"><span class="icone">⚙️</span> Configurações</a>
           <a href="javascript:void(0)" (click)="sair()"><span class="icone">↩️</span> Sair</a>
